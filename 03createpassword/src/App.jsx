@@ -23,6 +23,14 @@ function App() {
 
   }, [length, numb, char, setpassword])
 
+  // usecallback hook needs to be called, it does not execute on its own. this is done through useEffect
+  // Whenever dependencies change
+  // ↓
+  // run passwordgenerator()
+  // ↓
+  // setpassword(pass)
+  // ↓
+  // UI updates
   useEffect(()=>{passwordgenerator()}, [length, numb, char, passwordgenerator])
 
   const copytoclip = useCallback(()=>{
